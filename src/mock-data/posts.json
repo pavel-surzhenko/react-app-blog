@@ -1,0 +1,77 @@
+[
+    {
+        "hash": "e158c1d5-6473-4522-90f6-fb2a5fe8b638",
+        "body": "Привет как дела?",
+        "author": {
+            "hash": "fa9b870a-a033-40f9-bbe2-7ab08edc8e91",
+            "name": "Chuck Norris",
+            "avatar": "https://placeimg.com/256/256/animals"
+        },
+        "comments": [
+            {
+                "hash": "23e57e71-e088-4345-b9fe-77eadbd12ec5",
+                "body": "Привет. Отлично, а как у тебя?",
+                "author": {
+                    "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423657",
+                    "name": "Elon Musk"
+                },
+                "created": "2021-11-20T08:57:33.360Z"
+            }
+        ],
+        "likes": [
+            {
+                "hash": "14a72e91-7162-4c8b-a117-50ccfa568dfb",
+                "name": "John Dou"
+            }
+        ],
+        "created": "2021-11-18T12:00:00.035Z"
+    },
+    {
+        "hash": "e158c1d5-6473-4522-90f6-fb2a5fe8b639",
+        "body": "Напоминаю, завтра дедлайн по проекту. Кто сколько задач выполнил?",
+        "author": {
+            "hash": "fa9b870a-a033-40f9-bbe2-7ab08edc8e92",
+            "name": "Chuck Norris",
+            "avatar": "https://placeimg.com/256/256/animals"
+        },
+        "comments": [
+            {
+                "hash": "23e57e71-e088-4345-b9fe-77eadbd12ec6",
+                "body": "У меня всё ок, 2 задачи закрыл",
+                "author": {
+                    "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423658",
+                    "name": "Elon Musk"
+                },
+                "created": "2021-11-20T08:57:33.360Z"
+            },
+            {
+                "hash": "23e57e71-e088-4345-b9fe-77eadbd12ec7",
+                "body": "Осталась ещё 1 задача",
+                "author": {
+                    "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423658",
+                    "name": "Elon Musk"
+                },
+                "created": "2021-11-20T08:57:33.360Z"
+            }
+        ],
+        "likes": [],
+        "created": "2021-11-18T12:00:00.035Z"
+    },
+    {
+        "hash": "e158c1d5-6473-4522-90f6-fb2a5fe8b640",
+        "body": "Предлагаю назначить митинг сегодня в 11:00",
+        "author": {
+            "hash": "fa9b870a-a033-40f9-bbe2-7ab08edc8e93",
+            "name": "Chuck Norris",
+            "avatar": "https://placeimg.com/256/256/animals"
+        },
+        "comments": [],
+        "likes": [
+            {
+                "hash": "14a72e91-7162-4c8b-a117-50ccfa568dfс",
+                "name": "John Dou"
+            }
+        ],
+        "created": "2021-11-18T12:00:00.035Z"
+    }
+]

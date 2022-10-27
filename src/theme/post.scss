@@ -1,0 +1,194 @@
+.post {
+    position: relative;
+    margin: 0 auto;
+    padding: 15px;
+    word-wrap: break-word;
+    transition: box-shadow 0.3s ease;
+    margin-bottom:15px;
+    border-bottom: unset;
+    background: var(--paletteColor11);
+    border-radius: 10px;
+
+    & img {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    & a,
+    & time {
+        position: absolute;
+        left: 80px;
+        text-decoration: none;
+    }
+
+    & a {
+        top: 20px;
+        color: var(--paletteColor2);
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    & time {
+        top: 45px;
+        color: var(--paletteColor5);
+        font-size: 12px;
+    }
+
+    & p {
+        margin-top: 16px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--paletteColor2);
+    }
+
+    & .cross {
+        content: '';
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 10px;
+        height: 10px;
+        background-image: url('./assets/cross.png');
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+        &:hover {
+            background-position: -13px 0;
+        }
+    }
+
+    .reaction-controls {
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    & .comment {
+        cursor: pointer;
+        display: block;
+        color: var(--paletteColor5);
+        background: unset;
+        border: unset;
+        padding-left: 0;
+        padding-bottom: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 15px;
+        display: flex;
+        align-items: center;
+
+        .comment-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        &.comment-fill .comment-icon {
+            fill: var(--paletteColor5);
+
+            path {
+                stroke: var(--paletteColor5);
+            }
+        }
+        
+    }
+
+    & .commentForm {
+        margin-top: 10px;
+        padding: 15px 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid var(--paletteColor9);
+
+        .comment-avatar {
+            width: 30px;
+            height: 30px;
+        }
+
+        label {
+            flex-grow: 1;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 0;
+            border: 1px solid var(--paletteColor5);
+            margin-right: 10px;
+            width: 100%;
+            padding: 5px 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: transparent;
+            font-size: 16px;
+            color: white;
+            border: unset;
+        }
+
+        & button[type='submit'] {
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--paletteColor2);
+            cursor: pointer;
+            background-color: var(--paletteColor6);
+            border: 0;
+            border-radius: 50px;
+            outline: 0;
+            transition: opacity 0.2s ease-in;
+            appearance: button;
+            margin-left: 10px;
+            flex-shrink: 0;
+
+            &:hover {
+                background-color: var(--paletteColor6);
+                opacity: 0.8;
+                transition: opacity 0.2s ease-in;
+
+            }
+        }
+    }
+
+    & .separator {
+        width: 100%;
+        background-color: var(--paletteColor9);
+        border: unset;
+        height: 1px;
+    }
+
+    & .commentBody {
+        border-bottom: 1px solid var(--paletteColor10);
+        padding-bottom: 10px;
+
+        &:last-child{
+            border: unset;
+            padding: unset;
+        }
+        
+        & > p:first-child{
+            color: var(--paletteColor7);
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 14px;
+
+            & span {
+                display: block;
+                font-size: 12px;
+                color: var(--paletteColor5);
+                font-weight: normal;
+            }
+        }
+
+        & > p:last-child{
+            margin-top: 5px;
+            font-size: 16px;
+        }
+    }
+}
+
+.posts-container {
+    width: 100%;
+}
+

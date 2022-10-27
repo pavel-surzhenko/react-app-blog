@@ -1,0 +1,115 @@
+@import 'palette';
+
+.logo {
+    width: 115px;
+    height: 36px;
+    background: transparent url(./assets/logo-white.png) center center no-repeat;
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 20px;
+    background-color: var(--paletteColor6);
+
+    & nav {
+        display: flex;
+        margin-left: auto;
+
+        & a:first-child {
+            margin-right: 5px;
+        }
+    }
+
+    & a,
+    & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 27px;
+        padding: 2px 10px;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--paletteColor2);
+        text-decoration: none;
+        white-space: nowrap;
+        cursor: pointer;
+        background-color: transparent;
+        // border: 1px solid red;
+        //border-color: color-mod(var(--paletteColor6) lightness(65%));
+        // border-radius: 7px;
+        border: unset;
+        outline: 0;
+        transition: background-color 0.3s ease, border-color;
+
+        &:hover {
+            background-color: var(--rgbaColor2);
+            //border-color: color-mod(var(--paletteColor6) lightness(55%));
+            border-color: red;
+        }
+
+        & img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border: 1px solid var(--rgbaColor1);
+            border-radius: 50%;
+        }
+    }
+
+    & .active {
+        background: var(--rgbaColor2);
+    }
+
+    & .hidden {
+        flex-grow: 0;
+        visibility: hidden;
+        width: 0;
+        overflow: hidden;
+    }
+
+    & .status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 80px;
+        height: 24px;
+        padding: 5px;
+        margin-right: 5px;
+        margin-left: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #365899;
+        cursor: pointer;
+        user-select: none;
+        background: #f4f6f8;
+        // border-radius: 5px;
+
+        & span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+    }
+
+    & .online {
+        & span {
+            background: #578843;
+            box-shadow: 0 0 2px #578843;
+        }
+    }
+
+    & .offline {
+        & span {
+            background: #f40009;
+            box-shadow: 0 0 2px #f40009;
+        }
+    }
+}

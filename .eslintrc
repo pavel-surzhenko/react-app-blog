@@ -1,0 +1,16 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "@sotream/eslint-config-react-js"
+  ],
+  "rules": {
+    "import/no-cycle": "off",
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+.comment {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+    flex-grow: 1;
+    max-width: calc(100vw - 20px);
+    padding: 12px;
+    border: unset;
+    background-color: var(--paletteColor11);
+    // background: unset;
+    border-radius: 10px;
+    word-wrap: break-word;
+    transition: box-shadow 0.3s ease;
+
+
+
+    & > p:first-child {
+        color: var(--paletteColor2);
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    & > time {
+        display: block;
+        font-size: 12px;
+        color: var(--paletteColor5);
+        font-weight: normal;
+        margin-bottom: 15px;
+    }
+
+    & .body, & > .comment {
+        color: var(--paletteColor2);
+        font-size: 16px;
+    }
+
+    & .comment {
+        border-radius: unset;
+        background-color: var(--paletteColor11);
+        border-bottom: 1px solid var(--paletteColor2);
+
+        &:last-child {
+            border-bottom: unset;
+        }
+    }
+}
+
+.wrapper {
+    flex-grow: 1;
+    padding: 50px 30px 0;
+    min-height: 95vh;
+}
+
+.link-back {
+    color: var(--paletteColor5);
+    background: unset;
+    border: unset;
+    font-size: 16px;
+    transition: 0.3s all ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: unset;
+
+   .arrow{
+        display: block;
+        width: 26px;
+        height: 26px;
+        background: transparent url(./assets/exit.png) center center no-repeat;
+        background-size: cover;
+        margin-right: 10px;
+    }
+
+    &:hover {
+        opacity: 0.7;
+        transition: 0.3s all ease;
+    }
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 35px;
+    text-align: center;
+    color: white;
+}
+
+.subtitle {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: var(--paletteColor5)
+}
+
+
+.most-recent-comments {
+    .comment {
+        margin-bottom: 15px;
+
+        &:first-child{
+            margin-top: 0;
+        }
+
+        .body {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        a {
+            text-decoration: unset;
+            color: var(--paletteColor5);
+        }
+    }
+}

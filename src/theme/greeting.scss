@@ -1,0 +1,19 @@
+.greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #fff;
+    background-color: #202b38;
+
+    & h1 {
+        margin-bottom: 10px;
+        font-size: 2rem;
+    }
+
+    & p {
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+}

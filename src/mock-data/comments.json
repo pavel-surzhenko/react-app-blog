@@ -1,0 +1,50 @@
+[
+    {
+        "hash": "23e57e71-e088-4345-b9fe-77eadbd12ec5",
+        "body": "Мой первый комментарий",
+        "author": {
+            "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423657",
+            "name": "Elon Musk"
+        },
+        "post": {
+            "hash": "58c68a35-ffbf-4edb-9838-9b55cab79cdf"
+        },
+        "created": "2021-11-20T08:57:33.360Z"
+    },
+    {
+        "hash": "04651cb8-3e8f-4cd7-a8e9-48e4fb1364d1",
+        "body": "Hello!",
+        "author": {
+            "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423657",
+            "name": "Elon Musk"
+        },
+        "post": {
+            "hash": "adb07050-dd41-4891-88c2-61307210d9ba"
+        },
+        "created": "2021-11-15T15:50:40.723Z"
+    },
+    {
+        "hash": "9d8fd114-d18a-4f27-a31d-8b65d0eac427",
+        "body": "Всем привет",
+        "author": {
+            "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423657",
+            "name": "Elon Musk"
+        },
+        "post": {
+            "hash": "03325b5c-250a-47df-894a-38c228502043"
+        },
+        "created": "2021-11-10T11:05:30.099Z"
+    },
+    {
+        "hash": "62d2a961-eff0-47a7-8d22-774d57a333a3",
+        "body": "Мне время подходит",
+        "author": {
+            "hash": "d14d441e-3c9f-41e0-8ddb-66a94a423657",
+            "name": "Elon Musk"
+        },
+        "post": {
+            "hash": "ac5ff10a-ab4d-4c3a-8dc6-4cb9ff4e51f3"
+        },
+        "created": "2021-11-09T20:24:31.289Z"
+    }
+]

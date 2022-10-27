@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: roboto mono, roboto, system-ui;
+    background-color: var(--paletteColor3);
+
+    /* Зачаровать шрифты */
+    font-variant-ligatures: none;
+
+    /**
+     * Фикс для мобильного сафари, чтобы при поворотах он не склеивал и не терял контент.
+     * Префиксы установлены вручную, так как на момент 13.03.2018
+     * autoprefixer этого не делал автоматически.
+     */
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+
+    & section {
+        width: 100%;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1 1 auto;
+        background-color: var(--paletteColor3);
+    }
+}
