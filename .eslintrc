@@ -4,6 +4,7 @@
     "@sotream/eslint-config-react-js"
   ],
   "rules": {
+    "linebreak-style": ["error", "unix"],
     "import/no-cycle": "off",
     "indent": [
       "error",

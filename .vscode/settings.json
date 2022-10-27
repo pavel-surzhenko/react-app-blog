@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "editor.fontFamily": "'Fira Code', Hack, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "consolas",
   "cSpell.language": "en,ru",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
