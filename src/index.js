@@ -10,10 +10,11 @@ import './theme/init.scss';
 
 // App
 import { App } from './App';
+import { CommentsFormProvider } from './lib/commentsFormContext';
 
 render(
-    <>
+    <CommentsFormProvider>
         <App />
-    </>,
+    </CommentsFormProvider>,
     document.getElementById('root'),
 );
