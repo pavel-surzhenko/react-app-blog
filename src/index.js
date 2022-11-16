@@ -1,6 +1,7 @@
 // Core
 import React from 'react';
 import { render } from 'react-dom';
+import { QueryClientProvider }  from 'react-query';
 
 // Styles
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,11 +11,13 @@ import './theme/init.scss';
 
 // App
 import { App } from './App';
-import { CommentsFormProvider } from './lib/commentsFormContext';
+import { CommentsFormProvider, queryClient } from './lib';
 
 render(
-    <CommentsFormProvider>
-        <App />
-    </CommentsFormProvider>,
+    <QueryClientProvider client = { queryClient }>
+        <CommentsFormProvider>
+            <App />
+        </CommentsFormProvider>
+    </QueryClientProvider>,
     document.getElementById('root'),
 );

@@ -1,7 +1,11 @@
+// core
 import { formatDistance } from 'date-fns';
 
-// mock
-import comments from '../../mock-data/comments.json';
+// hooks
+import { useRecentComments }  from '../../hooks';
+
+// components
+import { Loading }  from '../Additionally/Loading';
 
 export const Comment = (props) => {
     const { body, author, created } = props;
@@ -26,7 +30,9 @@ export const Comment = (props) => {
 
 
 export const RecentComments = () => {
-    const commentJSX = comments.map((comment) => (
+    const { data, isFetched } = useRecentComments();
+
+    const commentJSX = data.map((comment) => (
         <Comment key = { comment.hash } { ...comment } />
     ));
 
@@ -34,7 +40,7 @@ export const RecentComments = () => {
         <div className = 'most-recent-comments'>
             <h1 className = 'title'>Popular comments</h1>
             <section>
-                { commentJSX }
+                { isFetched ? commentJSX : <Loading /> }
             </section>
         </div>
     );

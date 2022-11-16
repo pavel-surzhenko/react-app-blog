@@ -1,13 +1,15 @@
-
 // Components
 import { Composer } from '../forms/Composer';
 import { Post } from '../Post';
+import { Loading }  from '../Additionally/Loading';
 
-
-import posts from '../../mock-data/posts.json';
+// hooks
+import { usePosts }  from '../../hooks';
 
 export const Posts = () => {
-    const postJSX = posts.map((post) => (
+    const { data, isFetched } = usePosts();
+
+    const postJSX = data.map((post) => (
         <Post key = { post.hash } { ...post } />
     ));
 
@@ -16,7 +18,7 @@ export const Posts = () => {
             <h1 className = 'title'>Wall</h1>
             <Composer />
             <div className = 'posts-container'>
-                { postJSX }
+                { isFetched ? postJSX : <Loading /> }
             </div>
         </div>
     );
