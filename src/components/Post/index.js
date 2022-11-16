@@ -1,4 +1,5 @@
 // Core
+import { formatDistance } from 'date-fns';
 import { useContext } from 'react';
 import { Context } from '../../lib/commentsFormContext';
 
@@ -18,6 +19,14 @@ export const Post = (props) => {
         body, author, created, hash, comments,
     } = props;
 
+    const relatedDate = formatDistance(
+        new Date(created),
+        new Date(), {
+            addSuffix:      true,
+            includeSeconds: true,
+        },
+    );
+
     const handleClick = () => {
         // eslint-disable-next-line no-confusing-arrow
         setSelectedComment((id) => id ? null : hash);
@@ -31,7 +40,7 @@ export const Post = (props) => {
         <section className = 'post'>
             <img src = 'https://placeimg.com/256/256/animals' alt = 'avatar'></img>
             <a>{ author.name }</a>
-            <time> { created }</time>
+            <time> { relatedDate }</time>
             <p>{ body }</p>
             <div className = 'reaction-controls'>
                 <section className = 'like'>
