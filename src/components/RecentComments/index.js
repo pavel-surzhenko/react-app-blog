@@ -1,5 +1,6 @@
 // core
 import { formatDistance } from 'date-fns';
+import { Link }  from 'react-router-dom';
 
 // hooks
 import { useRecentComments }  from '../../hooks';
@@ -8,7 +9,9 @@ import { useRecentComments }  from '../../hooks';
 import { Loading }  from '../Additionally/Loading';
 
 export const Comment = (props) => {
-    const { body, author, created } = props;
+    const {
+        body, author, created, post,
+    } = props;
 
     const relatedDate = formatDistance(
         new Date(created),
@@ -23,7 +26,7 @@ export const Comment = (props) => {
             <p className = 'name'>{ author.name }</p>
             <time>{ relatedDate }</time>
             <p className = 'body'>{ body }</p>
-            <a href = '/rtx-homeworks/feed/17f1ada6-3486-4897-adf5-aa4d3ccac4ac/comments'>More comments</a>
+            <Link to = { post.hash }>More comments</Link>
         </div>
     );
 };
