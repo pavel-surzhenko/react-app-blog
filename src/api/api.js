@@ -9,14 +9,16 @@ export const api = {
         return localStorage.getItem('token');
     },
     auth: {
-        signup(userInfo) {
-            return fetch(`${AUTH_URL}/register`, {
-                method:  'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userInfo),
-            });
+        async signup(userInfo) {
+            const { data } = await axios.post(`${AUTH_URL}/register`,
+                userInfo,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+            return data;
         },
         async login(credentials) {
             const { data } = await axios.post(`${AUTH_URL}/login`,

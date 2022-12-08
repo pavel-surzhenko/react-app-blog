@@ -1,6 +1,6 @@
 {
   "workbench.iconTheme": "vscode-icons",
-  "editor.fontFamily": "consolas",
+  "editor.fontFamily": "monospace",
   "cSpell.language": "en,ru",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
@@ -28,8 +28,7 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "editor.fontLigatures": false,
-  "window.zoomLevel": 1.2,
+  "window.zoomLevel": 0,
   "editor.fontSize": 14,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "workbench.colorTheme": "Gruvbox Dark Hard"
 }
