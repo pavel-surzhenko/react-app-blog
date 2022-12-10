@@ -5,7 +5,7 @@ import {
 
 // Components
 import {
-    Feed, ProfilePage, PostCommentsPage, SignUpPage,
+    Feed, ProfilePage, PostCommentsPage, SignUpPage, LoginPage,
 } from './pages';
 import { Footer, Navigation } from './components';
 
@@ -33,6 +33,7 @@ export const App = () => {
                         <Route path = '/profile' element = { <ProfilePage /> } />
                     </Route>
                     <Route path = '/signup' element = { <SignUpPage /> } />
+                    <Route path = '/login' element = { <LoginPage /> } />
                     <Route path = '*' element = { <Navigate to = '/feed' replace /> } />
                 </Routes>
             </main>

@@ -36,15 +36,15 @@ export const SignUpForm = () => {
                             register = { form.register('name') } />
                         <Input
                             placeholder = 'Email' type = 'email'
-                            error = { form.formState.errors.name }
+                            error = { form.formState.errors.email }
                             register = { form.register('email') } />
                         <Input
                             placeholder = 'Password' type = 'password'
-                            error = { form.formState.errors.name }
+                            error = { form.formState.errors.password }
                             register = { form.register('password') } />
                         <Input
                             placeholder = 'Password' type = 'password'
-                            error = { form.formState.errors.name }
+                            error = { form.formState.errors.confirmPassword }
                             register = { form.register('confirmPassword') } />
                         <button
                             className = 'signupSubmit' type = 'submit'>Create account</button>

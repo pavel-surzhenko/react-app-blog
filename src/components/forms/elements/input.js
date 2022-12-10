@@ -7,10 +7,13 @@ export const Input = (props) => {
 
     return (
         <label>
-            <div>
-                <span className = 'error-message'>{ props.error?.message }</span>
-            </div>
             { input }
+            <div>
+                <span
+                    style = { {
+                        color: 'red', fontSize: '10px', text: 'left',
+                    } } className = 'error-message'>{ props.error?.message }</span>
+            </div>
         </label>
     );
 };
