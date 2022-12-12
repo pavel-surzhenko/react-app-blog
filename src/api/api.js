@@ -9,14 +9,16 @@ export const api = {
         return localStorage.getItem('token');
     },
     auth: {
-        signup(userInfo) {
-            return fetch(`${AUTH_URL}/register`, {
-                method:  'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userInfo),
-            });
+        async signup(userInfo) {
+            const { data } = await axios.post(`${AUTH_URL}/register`,
+                userInfo,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+            return data;
         },
         async login(credentials) {
             const { data } = await axios.post(`${AUTH_URL}/login`,
@@ -114,19 +116,19 @@ export const api = {
     },
     profile: {
         async fetch() {
-            const { data } = await axios.get(`${AUTH_URL}/profile`, {
+            const { data: profile } = await axios.get(`${AUTH_URL}/profile`, {
                 headers: {
                     Authorization: `Bearer ${api.token}`,
                 },
             });
 
-            return data;
+            return profile.data;
         },
         updateProfile(profileInfo) {
-            return fetch(`${AUTH_URL}/users`, {
+            return fetch(`${AUTH_URL}/profile`, {
                 method:  'PUT',
                 headers: {
-                    Authorization:  this.token,
+                    Authorization:  `Bearer ${api.token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(profileInfo),
