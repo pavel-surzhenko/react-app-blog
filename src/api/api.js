@@ -116,19 +116,19 @@ export const api = {
     },
     profile: {
         async fetch() {
-            const { data } = await axios.get(`${AUTH_URL}/profile`, {
+            const { data: profile } = await axios.get(`${AUTH_URL}/profile`, {
                 headers: {
                     Authorization: `Bearer ${api.token}`,
                 },
             });
 
-            return data;
+            return profile.data;
         },
         updateProfile(profileInfo) {
-            return fetch(`${AUTH_URL}/users`, {
+            return fetch(`${AUTH_URL}/profile`, {
                 method:  'PUT',
                 headers: {
-                    Authorization:  this.token,
+                    Authorization:  `Bearer ${api.token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(profileInfo),
