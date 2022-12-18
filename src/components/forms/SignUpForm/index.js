@@ -4,13 +4,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Link } from 'react-router-dom';
 
 // hooks
+import { observer } from 'mobx-react-lite';
 import { useSignUp } from '../../../hooks';
 
 // other
 import { schema } from './config';
 import { Input } from '../elements/input';
 
-export const SignUpForm = () => {
+export const SignUpForm = observer(() => {
     const signUp = useSignUp();
 
     const form = useForm({
@@ -54,4 +55,4 @@ export const SignUpForm = () => {
             </div>
         </form>
     );
-};
+});

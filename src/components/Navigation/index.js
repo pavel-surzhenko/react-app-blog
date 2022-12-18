@@ -18,7 +18,7 @@ export const Navigation = () => {
                 Chuck Norris
             </div>
             <NavLink to = '/profile' className = 'navigation-item' >Profile</NavLink>
-            <NavLink to = '/feed'className = 'navigation-item'>Wall</NavLink>
+            <NavLink to = '/feed' className = 'navigation-item'>Wall</NavLink>
             <button className = 'logout'>Log out</button>
         </div>
     );

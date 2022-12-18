@@ -1,7 +1,7 @@
 // Core
 import { formatDistance } from 'date-fns';
-import { useContext } from 'react';
-import { Context } from '../../lib/commentsFormContext';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../hooks';
 
 // Components
 import { CommentIcon } from '../../theme/assets/comment';
@@ -12,8 +12,11 @@ import { CommentsForm } from '../forms/CommentsForm';
 // mock
 
 
-export const Post = (props) => {
-    const [selectedComment, setSelectedComment] = useContext(Context);
+export const Post = observer((props) => {
+    const { commentsFormStore } = useStore();
+    const { selectedComment, setSelectedComment } = commentsFormStore;
+    console.log(selectedComment);
+
 
     const {
         body, author, created, hash, comments,
@@ -28,8 +31,7 @@ export const Post = (props) => {
     );
 
     const handleClick = () => {
-        // eslint-disable-next-line no-confusing-arrow
-        setSelectedComment((id) => id ? null : hash);
+        setSelectedComment(hash);
     };
 
     const commentsJSX = comments.map((comment) => (
@@ -60,4 +62,4 @@ export const Post = (props) => {
             { selectedComment === hash && <><CommentsForm /> { commentsJSX }</> }
         </section>
     );
-};
+});
