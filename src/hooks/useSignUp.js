@@ -1,27 +1,23 @@
 import { useEffect } from 'react';
 import { useMutation } from 'react-query';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../api';
-import { useStore } from './useStore';
+import { authActions } from '../lib/redux/actions';
 
 export const useSignUp = () => {
-    const { authStore, uiStore } = useStore();
-    const { setError } = uiStore;
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
     const mutation = useMutation((user) => {
         return api.auth.signup(user);
-    }, {
-        onError(error) {
-            setError(error?.response?.data?.message);
-        },
     });
 
     useEffect(() => {
-        const token = mutation.data?.data;
-
-        if (mutation.isSuccess && token) {
+        if (mutation.isSuccess) {
+            const token = mutation.data?.data;
+            dispatch(authActions.setToken(token));
             localStorage.setItem('token', token);
-            authStore.setToken(token);
             navigate('/feed');
         }
     }, [mutation.isSuccess]);

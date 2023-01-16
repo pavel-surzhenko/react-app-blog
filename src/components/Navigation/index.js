@@ -1,7 +1,14 @@
 // core
-import { NavLink }  from 'react-router-dom';
+import { NavLink, useNavigate }  from 'react-router-dom';
+import { useProfile } from '../../hooks';
 
 export const Navigation = () => {
+    const profile = useProfile();
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate('/login');
+    };
+
     return (
         <div>
             <div className = 'navigation-profile'>
@@ -15,11 +22,11 @@ export const Navigation = () => {
                         </div>
                     </div>
                 </div>
-                Chuck Norris
+                { profile.data?.name }
             </div>
             <NavLink to = '/profile' className = 'navigation-item' >Profile</NavLink>
             <NavLink to = '/feed' className = 'navigation-item'>Wall</NavLink>
-            <button className = 'logout'>Log out</button>
+            <button className = 'logout' onClick = { goBack }>Log out</button>
         </div>
     );
 };

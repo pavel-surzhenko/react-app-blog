@@ -1,34 +1,29 @@
 // Core
 import React from 'react';
+import { Provider }  from 'react-redux';
 import { render } from 'react-dom';
-import { QueryClientProvider }  from 'react-query';
-import { BrowserRouter }  from 'react-router-dom';
-import { configure }  from 'mobx';
+import { QueryClientProvider } from 'react-query';
+import { BrowserRouter } from 'react-router-dom';
 
 // Styles
 import 'react-toastify/dist/ReactToastify.css';
 import './theme/init.scss';
 
 // Instruments
+import { store }  from './lib/redux/init/store';
 
 // App
 import { App } from './App';
-import { queryClient, StoreProvider } from './lib';
-
-configure({
-    enforceActions:             'always',
-    computedRequiresReaction:   true,
-    observableRequiresReaction: true,
-    reactionRequiresObservable: true,
-});
+import { queryClient } from './lib';
 
 render(
-    <QueryClientProvider client = { queryClient }>
-        <StoreProvider>
+    <Provider store = { store }>
+        <QueryClientProvider client = { queryClient }>
             <BrowserRouter>
                 <App />
             </BrowserRouter>
-        </StoreProvider>
-    </QueryClientProvider>,
+        </QueryClientProvider>
+    </Provider>,
     document.getElementById('root'),
 );
+
