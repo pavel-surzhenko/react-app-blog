@@ -1,7 +1,9 @@
 // Core
 import { formatDistance } from 'date-fns';
-import { observer } from 'mobx-react-lite';
-import { useStore } from '../../hooks';
+import { useDispatch, useSelector }  from 'react-redux';
+import { postActions } from '../../lib/redux/actions/posts';
+import { getPostId } from '../../lib/redux/selectors/posts';
+
 
 // Components
 import { CommentIcon } from '../../theme/assets/comment';
@@ -12,12 +14,9 @@ import { CommentsForm } from '../forms/CommentsForm';
 // mock
 
 
-export const Post = observer((props) => {
-    const { commentsFormStore } = useStore();
-    const { selectedComment, setSelectedComment } = commentsFormStore;
-    console.log(selectedComment);
-
-
+export const Post = (props) => {
+    const dispatch = useDispatch();
+    const selectedComment = useSelector(getPostId);
     const {
         body, author, created, hash, comments,
     } = props;
@@ -31,7 +30,7 @@ export const Post = observer((props) => {
     );
 
     const handleClick = () => {
-        setSelectedComment(hash);
+        dispatch(postActions.setPostId(props.hash === selectedComment ? '' : props.hash));
     };
 
     const commentsJSX = comments.map((comment) => (
@@ -62,4 +61,4 @@ export const Post = observer((props) => {
             { selectedComment === hash && <><CommentsForm /> { commentsJSX }</> }
         </section>
     );
-});
+};

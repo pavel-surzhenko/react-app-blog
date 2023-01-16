@@ -12,6 +12,7 @@ import { schema }  from './config';
 export const Profile = () => {
     const profile = useProfile();
     const updateProfile = useUpdateProfile();
+
     const [name, setName] = useState();
 
     useEffect(() => {
