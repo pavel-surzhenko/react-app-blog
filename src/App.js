@@ -6,7 +6,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 
 // Components
 import {
-    Feed, ProfilePage, PostCommentsPage, SignUpPage, LoginPage,
+    Feed, ProfilePage, PostCommentsPage, SignUpPage, LoginPage, NewPasswordPage,
 } from './pages';
 import { Footer, Navigation } from './components';
 import { useErrorMessage } from './hooks/useErrorMessage';
@@ -26,8 +26,9 @@ export const Home = () => {
 
 
 export const App = () => {
-    useToken();
     useErrorMessage();
+    // useToken();
+
 
     return (
         <>
@@ -39,6 +40,7 @@ export const App = () => {
                         <Route path = '/feed' element = { <Feed /> } />
                         <Route path = '/feed/:id' element = { <PostCommentsPage /> } />
                         <Route path = '/profile' element = { <ProfilePage /> } />
+                        <Route path = '/new-password' element = { <NewPasswordPage /> } />
                     </Route>
                     <Route path = '/signup' element = { <SignUpPage /> } />
                     <Route path = '/login' element = { <LoginPage /> } />

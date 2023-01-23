@@ -1,2 +1,3 @@
-export * from './auth';
+export { authActions } from './auth';
 export * from './posts';
+export * from './password';

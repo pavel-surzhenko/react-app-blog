@@ -2,6 +2,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 // hooks
 import { useProfile, useUpdateProfile } from '../../hooks';
 import { Input } from '../forms/elements/input';
@@ -48,7 +49,7 @@ export const Profile = () => {
                         register = { form.register('lastName') } />
                     <button className = 'loginSubmit' type = 'submit'>Update profile</button>
                 </div>
-                <a href = '#'>Change password</a>
+                <Link to = '/new-password'>Change password</Link>
             </div>
         </form>
     );
