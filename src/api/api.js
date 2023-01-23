@@ -32,11 +32,13 @@ export const api = {
             return data;
         },
         async auth() {
-            await axios.get(`${AUTH_URL}/auth`, {
+            const { data } = await axios.get(`${AUTH_URL}/auth`, {
                 headers: {
                     Authorization: `Bearer ${api.token}`,
                 },
             });
+
+            return data;
         },
         logout() {
             return fetch(`${AUTH_URL}/logout`, {
@@ -142,6 +144,19 @@ export const api = {
                 },
                 body: avatarFormData,
             });
+        },
+        async updatePassword(passwordData) {
+            const { data } = await axios.post(
+                `${AUTH_URL}/reset-password`,
+                passwordData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${this.token}`,
+                    },
+                },
+            );
+
+            return data;
         },
     },
     users: {
