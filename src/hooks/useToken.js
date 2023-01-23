@@ -25,7 +25,5 @@ export const useToken = () => {
         }
     }, [error]);
 
-    return (
-        data
-    );
+    return data;
 };

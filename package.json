@@ -43,6 +43,7 @@
         "@babel/plugin-proposal-class-properties": "7.16.0",
         "@babel/plugin-syntax-jsx": "7.16.0",
         "@sotream/eslint-config-react-js": "0.1.0",
+        "@sotream/eslint-config-react-ts": "^0.1.2",
         "@testing-library/jest-dom": "5.15.1",
         "@testing-library/react": "12.1.2",
         "@testing-library/user-event": "13.5.0",
