@@ -25,10 +25,8 @@ export const Home = () => {
 };
 
 
-export const App = () => {
+export const App: React.FC = () => {
     useErrorMessage();
-    // useToken();
-
 
     return (
         <>

@@ -6,6 +6,7 @@ export const Navigation = () => {
     const profile = useProfile();
     const navigate = useNavigate();
     const goBack = () => {
+        localStorage.removeItem('token');
         navigate('/login');
     };
 

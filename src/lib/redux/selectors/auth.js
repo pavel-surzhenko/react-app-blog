@@ -1,5 +1,5 @@
 export const getToken = (state) => {
-    return state.auth.getToken;
+    return state.auth.token;
 };
 
 export const getErrorMessage = (state) => {

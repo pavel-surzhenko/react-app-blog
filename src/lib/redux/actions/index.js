@@ -1,3 +1,3 @@
 export { authActions } from './auth';
-export * from './posts';
-export * from './password';
+export { postActions } from './posts';
+export { passwordActions } from './password';

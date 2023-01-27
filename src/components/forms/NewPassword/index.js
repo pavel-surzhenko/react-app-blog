@@ -1,30 +1,28 @@
-import { Link, useNavigate }  from 'react-router-dom';
+import { Link }  from 'react-router-dom';
 import { useDispatch, useSelector }  from 'react-redux';
 import { useForm }  from 'react-hook-form';
 import { useEffect } from 'react';
 import { getPasswordState, getToken } from '../../../lib/redux/selectors/auth';
-import { authActions } from '../../../lib/redux/actions/auth';
-import { passwordActions } from '../../../lib/redux/actions/password';
+import { authActions, passwordActions } from '../../../lib/redux/actions';
 
 export const NewPassword = () => {
     const dispatch = useDispatch();
     const token = useSelector(getToken);
     const resetPassword = useSelector(getPasswordState);
 
-    const navigate = useNavigate();
     const form = useForm({
         mode: 'onTouched',
     });
 
     useEffect(() => {
         if (resetPassword.token !== token) {
-            dispatch(authActions.setToken(resetPassword.token));
-            navigate('/feed');
+            dispatch(authActions.setToken(resetPassword.token || token));
         }
     }, [resetPassword.token]);
 
     const handleSubmit = form.handleSubmit(async (passwordData) => {
         await dispatch(passwordActions.updatePasswordAsync(passwordData));
+        form.reset();
     });
 
     return (

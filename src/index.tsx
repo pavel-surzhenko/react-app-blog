@@ -1,9 +1,9 @@
 // Core
-import React from 'react';
 import { Provider }  from 'react-redux';
 import { render } from 'react-dom';
 import { QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 // Styles
 import 'react-toastify/dist/ReactToastify.css';
