@@ -1,9 +1,9 @@
 // Core
 import { formatDistance } from 'date-fns';
 import { useDispatch, useSelector }  from 'react-redux';
+import { useProfile } from '../../hooks';
 import { postActions } from '../../lib/redux/actions/posts';
 import { getPostId } from '../../lib/redux/selectors/posts';
-
 
 // Components
 import { CommentIcon } from '../../theme/assets/comment';
@@ -11,12 +11,10 @@ import { LikeIcon } from '../../theme/assets/like';
 import { Comment } from '../Comment';
 import { CommentsForm } from '../forms/CommentsForm';
 
-// mock
-
-
 export const Post = (props) => {
     const dispatch = useDispatch();
     const selectedComment = useSelector(getPostId);
+    const { data:{ hash: hashAuthor } } = useProfile();
     const {
         body, author, created, hash, comments,
     } = props;
@@ -29,6 +27,7 @@ export const Post = (props) => {
         },
     );
 
+
     const handleClick = () => {
         dispatch(postActions.setPostId(props.hash === selectedComment ? '' : props.hash));
     };
@@ -40,6 +39,7 @@ export const Post = (props) => {
     return (
         <section className = 'post'>
             <img src = 'https://placeimg.com/256/256/animals' alt = 'avatar'></img>
+            { author.hash === hashAuthor ? <span className = 'cross'></span> : '' }
             <a>{ author.name }</a>
             <time> { relatedDate }</time>
             <p>{ body }</p>
