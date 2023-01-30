@@ -6,4 +6,5 @@ export { useLogin } from './useLogin';
 export { useProfile } from './useProfile';
 export { useUpdateProfile } from './useUpdateProfile';
 export { useToken } from './useToken';
+export { useLogOut } from './useLogout';
 
