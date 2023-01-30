@@ -1,4 +1,5 @@
 // Components
+import { useEffect } from 'react';
 import { Composer } from '../forms/Composer';
 import { Post } from '../Post';
 import { Loading }  from '../Additionally/Loading';
@@ -7,11 +8,15 @@ import { Loading }  from '../Additionally/Loading';
 import { usePosts }  from '../../hooks';
 
 export const Posts = () => {
-    const { data, isFetched } = usePosts();
-
+    const { data, isFetched, refetch } = usePosts();
     const postJSX = data.map((post) => (
         <Post key = { post.hash } { ...post } />
     ));
+
+    useEffect(() => {
+        refetch();
+    }, [data]);
+
 
     return (
         <div className = 'posts'>

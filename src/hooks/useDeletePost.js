@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
-import { useMutation } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { api } from '../api';
+import { toastOptions } from '../constants/toastOptions';
 import { authActions } from '../lib/redux/actions';
+import { usePosts } from './usePosts';
 
-export function useLogOut() {
+export function useDeletePost() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const mutation = useMutation(() => api.auth.logout(), {
+    const posts = usePosts();
+    const mutation = useMutation((hash) => api.posts.remove(hash), {
         onError: (error) => {
             dispatch(authActions.setError(error?.message));
         },
@@ -16,11 +18,10 @@ export function useLogOut() {
 
     useEffect(() => {
         if (mutation.isSuccess) {
-            localStorage.removeItem('token');
-            navigate('/login');
+            toast('Post successful deleted', toastOptions);
+            posts.refetch();
         }
     }, [mutation.isSuccess]);
 
     return mutation;
 }
-

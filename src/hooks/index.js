@@ -8,4 +8,5 @@ export { useUpdateProfile } from './useUpdateProfile';
 export { useToken } from './useToken';
 export { useLogOut } from './useLogout';
 export { useCreatePost } from './useCreatePost';
+export { useDeletePost } from './useDeletePost';
 
