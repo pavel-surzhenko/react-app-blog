@@ -1,9 +1,17 @@
 export const Input = (props) => {
-    const input = (
+    let input = (
         <input
             placeholder = { props.placeholder }
             type = { props.type } { ...props.register } />
     );
+
+    if (props.tag === 'textarea') {
+        input = (
+            <textarea
+                placeholder = { props.placeholder }
+                { ...props.register } />
+        );
+    }
 
     return (
         <label>
