@@ -96,7 +96,6 @@ export const api = {
             });
         },
         async comment({ hash, body }) {
-            console.log(hash, body);
             const { data } = await axios.put(`${FEED_URL}/${hash}/comment`,
                 { body },
                 {

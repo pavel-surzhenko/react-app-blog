@@ -1,7 +1,10 @@
 // Core
 import { formatDistance } from 'date-fns';
+import { useState } from 'react';
 import { useDispatch, useSelector }  from 'react-redux';
-import { useDeletePost, useProfile } from '../../hooks';
+import {
+    useDeletePost, useLike, useProfile, useUnlike,
+} from '../../hooks';
 import { postActions } from '../../lib/redux/actions/posts';
 import { getPostId } from '../../lib/redux/selectors/posts';
 
@@ -13,11 +16,13 @@ import { CommentsForm } from '../forms/CommentsForm';
 
 export const Post = (props) => {
     const removePost = useDeletePost();
+    const like = useLike();
+    const unlike = useUnlike();
     const dispatch = useDispatch();
     const selectedComment = useSelector(getPostId);
-    const { data:{ hash: hashAuthor } } = useProfile();
+    const { data:{ hash: hashAuthor, name } } = useProfile();
     const {
-        body, author, created, hash, comments,
+        body, author, created, hash, comments, likes,
     } = props;
 
     const relatedDate = formatDistance(
@@ -30,6 +35,26 @@ export const Post = (props) => {
 
     const handleClick = () => {
         dispatch(postActions.setPostId(props.hash === selectedComment ? '' : props.hash));
+    };
+
+    const liked = likes.filter((post) => post.name === name);
+    const likePost = () => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        liked.length ? unlike.mutate(hash) : like.mutate(hash);
+    };
+
+    const likelistJSX = likes.map((post) => (
+        <li key = { post.hash }> { post.name }</li>
+    ));
+
+    const [mouseHover, setMouseHover] = useState(false);
+
+    const handleMouseHover = () => {
+        setMouseHover(true);
+    };
+
+    const handleMouseLeave = () => {
+        setMouseHover(false);
     };
 
     const commentsJSX = comments.map((comment) => (
@@ -45,10 +70,11 @@ export const Post = (props) => {
             <p>{ body }</p>
             <div className = 'reaction-controls'>
                 <section className = 'like'>
-                    <div>
-                        <span>0</span>
+                    <div onMouseEnter = { handleMouseHover } onMouseLeave = { handleMouseLeave }>
+                        { mouseHover && likes.length !== 0 && <ul> { likelistJSX } </ul>  }
+                        <span>{ likes.length }</span>
                     </div>
-                    <span className = 'icon'>
+                    <span onClick = { likePost } className = { `icon ${liked.length ? 'liked' : ''} ` }>
                         <LikeIcon />
                         Like
                     </span>
