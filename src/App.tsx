@@ -10,7 +10,6 @@ import {
 } from './pages';
 import { Footer, Navigation } from './components';
 import { useErrorMessage } from './hooks/useErrorMessage';
-import { useToken } from './hooks';
 
 
 export const Home = () => {
@@ -25,10 +24,8 @@ export const Home = () => {
 };
 
 
-export const App = () => {
+export const App: React.FC = () => {
     useErrorMessage();
-    // useToken();
-
 
     return (
         <>

@@ -1,6 +1,8 @@
+import { toast } from 'react-toastify';
 import { passwordTypes } from '../types/password';
 import { api }  from '../../../api';
 import { authActions } from './auth';
+import { toastOptions } from '../../../constants/toastOptions';
 
 export const passwordActions = Object.freeze({
     startFetching: () => {
@@ -29,6 +31,7 @@ export const passwordActions = Object.freeze({
             localStorage.removeItem('token');
             localStorage.setItem('token', token?.data);
             dispatch(passwordActions.updatePassword(token?.data));
+            toast('Password has been change', toastOptions);
         } catch (error) {
             dispatch(authActions.setError(error.message));
         } finally {

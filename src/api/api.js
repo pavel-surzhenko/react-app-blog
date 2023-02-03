@@ -1,5 +1,6 @@
 // Core
 import axios from 'axios';
+// import { ILogin, ISignUpWithToken } from '../types';
 
 // Instruments
 import { AUTH_URL, FEED_URL } from './config';
@@ -151,7 +152,7 @@ export const api = {
                 passwordData,
                 {
                     headers: {
-                        Authorization: `Bearer ${this.token}`,
+                        Authorization: `Bearer ${api.token}`,
                     },
                 },
             );

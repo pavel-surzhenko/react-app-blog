@@ -6,7 +6,10 @@ import { api } from '../api';
 import { authActions } from '../lib/redux/actions';
 
 export const useToken = () => {
-    const query = useQuery('token', api.auth.auth);
+    const query = useQuery('token', api.auth.auth, {
+        retry: false,
+    });
+
     const { data, error } = query;
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -14,18 +17,13 @@ export const useToken = () => {
     useEffect(() => {
         if (data && data.status === 'success') {
             dispatch(authActions.setToken(data));
-        } else {
-            navigate('/login');
         }
     }, [data]);
 
     useEffect(() => {
         if (error?.message) {
             dispatch(authActions.setError(error.message));
+            navigate('/login');
         }
     }, [error]);
-
-    return (
-        data
-    );
 };
