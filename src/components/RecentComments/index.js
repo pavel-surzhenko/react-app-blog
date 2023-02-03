@@ -41,7 +41,7 @@ export const RecentComments = () => {
 
     return (
         <div className = 'most-recent-comments'>
-            <h1 className = 'title'>Popular comments</h1>
+            <h1 className = 'title'>Recent comments</h1>
             <section>
                 { isFetched ? commentJSX : <Loading /> }
             </section>

@@ -1,15 +1,16 @@
+// core
 import { useEffect } from 'react';
 import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { api } from '../api';
 import { authActions } from '../lib/redux/actions';
-import { usePosts } from './usePosts';
+import { useRecentComments } from './useRecentComments';
 
-export function useDeletePost() {
+export const useComment = () => {
     const dispatch = useDispatch();
-    const posts = usePosts();
-    const mutation = useMutation((hash) => {
-        return api.posts.remove(hash);
+    const recentComments = useRecentComments();
+    const mutation = useMutation(({ hash, body }) => {
+        return api.posts.comment({ hash, ...body });
     }, {
         onError: (error) => {
             dispatch(authActions.setError(error?.message));
@@ -18,9 +19,9 @@ export function useDeletePost() {
 
     useEffect(() => {
         if (mutation.isSuccess) {
-            posts.refetch();
+            recentComments.refetch();
         }
     }, [mutation.isSuccess]);
 
     return mutation;
-}
+};

@@ -9,4 +9,5 @@ export { useToken } from './useToken';
 export { useLogOut } from './useLogout';
 export { useCreatePost } from './useCreatePost';
 export { useDeletePost } from './useDeletePost';
+export { useComment } from './useComment';
 

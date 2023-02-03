@@ -32,12 +32,6 @@ export const Post = (props) => {
         dispatch(postActions.setPostId(props.hash === selectedComment ? '' : props.hash));
     };
 
-    const handle = (id) => {
-        const idPost = id;
-        removePost.mutate(idPost);
-    };
-
-
     const commentsJSX = comments.map((comment) => (
         <Comment key = { comment.hash } { ...comment } />
     ));
@@ -45,7 +39,7 @@ export const Post = (props) => {
     return (
         <section className = 'post'>
             <img src = 'https://placeimg.com/256/256/animals' alt = 'avatar'></img>
-            { author.hash === hashAuthor ? <span className = 'cross' onClick = { () => handle(hash) }></span> : '' }
+            { author.hash === hashAuthor ? <span className = 'cross' onClick = { () => removePost.mutate(hash) }></span> : '' }
             <a>{ author.name }</a>
             <time> { relatedDate }</time>
             <p>{ body }</p>
