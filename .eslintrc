@@ -1,18 +1,8 @@
 {
-  // "parser": "@babel/eslint-parser",
   "extends": [
     "@sotream/eslint-config-react-ts"
   ],
   "rules": {
-    // "linebreak-style": ["error", "unix"],
-    // "import/no-cycle": "off",
-    // "indent": [
-    //   "error",
-    //   4,
-    //   {
-    //     "SwitchCase": 1
-    //   }
-    // ]
     "no-void" :"off",
     "indent":["error", 4, {"SwitchCase":1}]
   }
