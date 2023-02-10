@@ -6,6 +6,19 @@ Wellcome! 🚀
 This is my study react-project "blog"
 
 To get started, you need to log in to your account or register a new one 
+<div>
+<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/login.png" alt='login' width="400" height='400'>
+<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/register.png" alt='register' width="400" height='400'>
+</div>
+
+
+The main page consists of navigation, posts and recent comments. On the wall, the user can write a new post, comment and like other posts
+
+<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/main.png" alt='main' width="700" height='450'>
+
+On the profile tab, the user can change the name and password.
+<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/update.png" alt='update' width="700" height='450'>
+
 
 ## Functionality: 
 
