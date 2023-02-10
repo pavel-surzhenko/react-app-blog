@@ -4,11 +4,13 @@ import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { api } from '../api';
 import { authActions } from '../lib/redux/actions';
+import { usePosts } from './usePosts';
 import { useRecentComments } from './useRecentComments';
 
 export const useComment = () => {
     const dispatch = useDispatch();
     const recentComments = useRecentComments();
+    const posts = usePosts();
     const mutation = useMutation(({ hash, body }) => {
         return api.posts.comment({ hash, ...body });
     }, {
@@ -20,6 +22,7 @@ export const useComment = () => {
     useEffect(() => {
         if (mutation.isSuccess) {
             recentComments.refetch();
+            posts.refetch();
         }
     }, [mutation.isSuccess]);
 
