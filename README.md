@@ -14,10 +14,11 @@ To get started, you need to log in to your account or register a new one
 
 The main page consists of navigation, posts and recent comments. On the wall, the user can write a new post, comment and like other posts
 
-<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/main.png" alt='main' width="700" height='450'>
+<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/main.png" alt='main' width="500" height='300'>
 
 On the profile tab, the user can change the name and password.
-<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/update.png" alt='update' width="700" height='450'>
+
+<img src="https://github.com/pavel-surzhenko/react-2/blob/main/screens/update.png" alt='update' width="500" height='300'>
 
 
 ## Functionality: 
