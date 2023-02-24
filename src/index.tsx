@@ -2,7 +2,7 @@
 import { Provider }  from 'react-redux';
 import { render } from 'react-dom';
 import { QueryClientProvider } from 'react-query';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 // Styles
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,9 +18,9 @@ import { queryClient } from './lib';
 render(
     <Provider store = { store }>
         <QueryClientProvider client = { queryClient }>
-            <BrowserRouter>
+            <HashRouter>
                 <App />
-            </BrowserRouter>
+            </HashRouter>
         </QueryClientProvider>
     </Provider>,
     document.getElementById('root'),

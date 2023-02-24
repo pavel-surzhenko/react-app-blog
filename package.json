@@ -2,14 +2,17 @@
     "name": "rtx-feed",
     "version": "1.0.8",
     "private": true,
+    "homepage": "https://pavel-surzhenko.github.io/react-app-blog/#/login",
     "scripts": {
         "dev": "react-scripts --openssl-legacy-provider start",
-        "build": "react-scripts build",
+        "build": "react-scripts --openssl-legacy-provider build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "start": "serve -s build",
         "lint": "eslint ./src",
-        "eslint:fix": "eslint ./src --fix"
+        "eslint:fix": "eslint ./src --fix",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "@hookform/resolvers": "2.8.3",
@@ -18,6 +21,7 @@
         "date-fns": "2.26.0",
         "faker": "5.5.3",
         "formik": "2.2.9",
+        "gh-pages": "^5.0.0",
         "history": "5.1.0",
         "mobx": "6.3.7",
         "mobx-react-lite": "3.2.2",
